@@ -1,7 +1,7 @@
 CREATE TABLE bill(
      id SERIAL PRIMARY KEY,
      name TEXT NOT NULL,
-     original_value NUMERIC NOT NULL,
+     original_value NUMERIC(10,2) NOT NULL,
      due_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
      payment_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
