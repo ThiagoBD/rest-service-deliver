@@ -8,11 +8,12 @@ import br.com.thiagodias.teste_deliver.domain.gateway.BillGateway;
 import br.com.thiagodias.teste_deliver.domain.gateway.BillGatewayImpl;
 import br.com.thiagodias.teste_deliver.domain.gateway.mapper.BillEntityMapper;
 import br.com.thiagodias.teste_deliver.domain.service.BillService;
+import br.com.thiagodias.teste_deliver.domain.service.PenaltyService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class SpringBeanConfigurator {
+public class BillBeanConfigurator {
     @Bean
     public BillRestController billRestController(BillUseCase billUseCase, BillDtoMapper billDtoMapper){
         return new BillRestController(billUseCase, billDtoMapper);
@@ -22,11 +23,12 @@ public class SpringBeanConfigurator {
         return new BillUseCase(billService);
     }
     @Bean
-    public BillService billService(BillGateway billGateway){
-        return new BillService(billGateway);
+    public BillService billService(BillGateway billGateway, PenaltyService penaltyService){
+        return new BillService(billGateway, penaltyService);
     }
     @Bean
     public BillGateway billGateway(BillRepository billRepository, BillEntityMapper billEntityMapper){
         return new BillGatewayImpl(billRepository, billEntityMapper);
     }
+
 }

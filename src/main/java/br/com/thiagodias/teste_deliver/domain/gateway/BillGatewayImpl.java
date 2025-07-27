@@ -6,7 +6,6 @@ import br.com.thiagodias.teste_deliver.domain.gateway.mapper.BillEntityMapper;
 import br.com.thiagodias.teste_deliver.domain.model.Bill;
 
 
-
 public class BillGatewayImpl implements BillGateway {
     private final BillRepository billRepository;
     private final BillEntityMapper billEntityMapper;

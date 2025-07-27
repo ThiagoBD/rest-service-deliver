@@ -23,6 +23,14 @@ public class BillEntity {
         this.paymentDate = paymentDate;
     }
 
+    public BillEntity(Long id, String name, BigDecimal originalValue, LocalDateTime dueDate, LocalDateTime paymentDate) {
+        this.id = id;
+        this.name = name;
+        this.originalValue = originalValue;
+        this.dueDate = dueDate;
+        this.paymentDate = paymentDate;
+    }
+
     public Long getId() {
         return id;
     }

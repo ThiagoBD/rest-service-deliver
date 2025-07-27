@@ -29,11 +29,11 @@ public class Bill {
     }
     public Penalty calculatePenality(Long daysDifference){
          if(daysDifference <= 3 && daysDifference >0) {
-            return new Penalty(new BigDecimal("0.02"),new BigDecimal("0.001"));
+            return new Penalty(new BigDecimal("0.02"),new BigDecimal("0.001"), daysDifference);
         } else if (daysDifference <= 5) {
-             return new Penalty(new BigDecimal("0.03"),new BigDecimal("0.002"));
+             return new Penalty(new BigDecimal("0.03"),new BigDecimal("0.002"), daysDifference);
         } else {
-             return new Penalty(new BigDecimal("0.05"),new BigDecimal("0.003"));
+             return new Penalty(new BigDecimal("0.05"),new BigDecimal("0.003"), daysDifference);
         }
     }
 
