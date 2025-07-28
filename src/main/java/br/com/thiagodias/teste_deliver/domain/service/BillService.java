@@ -21,10 +21,10 @@ public class BillService {
     }
 
     public Bill createBill(Bill bill){
-        long paymentDaysDifference = Math.max(ChronoUnit.DAYS.between(bill.getDueDate(),bill.getPaymentDate()),0);
        if (!bill.isOverdue()){
            return billGateway.save(bill);
        }
+        long paymentDaysDifference = Math.max(ChronoUnit.DAYS.between(bill.getDueDate(),bill.getPaymentDate()),0);
         Penalty penalty = bill.calculatePenality(paymentDaysDifference);
         penalty.setAdjustedValue(bill.getOriginalValue());
         Bill savedBill = billGateway.save(bill);
