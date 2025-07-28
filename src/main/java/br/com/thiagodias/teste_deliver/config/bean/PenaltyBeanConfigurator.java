@@ -1,4 +1,4 @@
-package br.com.thiagodias.teste_deliver.config;
+package br.com.thiagodias.teste_deliver.config.bean;
 
 import br.com.thiagodias.teste_deliver.adapter.output.persistence.repository.PenaltyRepository;
 import br.com.thiagodias.teste_deliver.domain.gateway.PenaltyGateway;

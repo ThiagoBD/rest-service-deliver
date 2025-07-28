@@ -5,6 +5,7 @@ import br.com.thiagodias.teste_deliver.adapter.input.dto.BillResponseDTO;
 import br.com.thiagodias.teste_deliver.adapter.input.mapper.BillDtoMapper;
 import br.com.thiagodias.teste_deliver.application.usecase.BillUseCase;
 import br.com.thiagodias.teste_deliver.domain.model.Bill;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class BillRestController {
     }
 
     @PostMapping()
-    public ResponseEntity<BillResponseDTO> addBill(@RequestBody BillRequestDTO billRequestDTO){
+    public ResponseEntity<BillResponseDTO> addBill(@RequestBody @Valid BillRequestDTO billRequestDTO){
         Bill bill = billUseCase.create(billDtoMapper.toDomain(billRequestDTO));
         BillResponseDTO response = billDtoMapper.toResponse(bill);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
