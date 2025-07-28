@@ -32,6 +32,9 @@ public class PenaltyEntity {
         this.daysLate = daysLate;
     }
 
+    public PenaltyEntity() {
+    }
+
     public BigDecimal getAdjustedValue() {
         return adjustedValue;
     }

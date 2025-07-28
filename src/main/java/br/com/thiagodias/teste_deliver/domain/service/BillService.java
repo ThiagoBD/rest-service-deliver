@@ -1,10 +1,14 @@
 package br.com.thiagodias.teste_deliver.domain.service;
 
+import br.com.thiagodias.teste_deliver.adapter.input.dto.BillListResponseDTO;
 import br.com.thiagodias.teste_deliver.domain.gateway.BillGateway;
 import br.com.thiagodias.teste_deliver.domain.gateway.PenaltyGateway;
 import br.com.thiagodias.teste_deliver.domain.model.Bill;
 import br.com.thiagodias.teste_deliver.domain.model.Penalty;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 public class BillService {
@@ -27,6 +31,9 @@ public class BillService {
         penalty.setBill(savedBill);
         penaltyService.create(penalty);
         return savedBill;
+    }
+    public List<Bill> listAllBill(){
+        return billGateway.listAllBill();
     }
 
 }

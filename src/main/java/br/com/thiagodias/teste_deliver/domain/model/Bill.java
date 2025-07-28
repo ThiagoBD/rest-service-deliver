@@ -37,7 +37,7 @@ public class Bill {
         }
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

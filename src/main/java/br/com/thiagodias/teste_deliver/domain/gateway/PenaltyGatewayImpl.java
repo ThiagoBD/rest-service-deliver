@@ -5,6 +5,8 @@ import br.com.thiagodias.teste_deliver.adapter.output.persistence.repository.Pen
 import br.com.thiagodias.teste_deliver.domain.gateway.mapper.PenaltyEntityMapper;
 import br.com.thiagodias.teste_deliver.domain.model.Penalty;
 
+import java.util.List;
+
 public class PenaltyGatewayImpl implements PenaltyGateway {
     private final PenaltyRepository penaltyRepository;
     private final PenaltyEntityMapper penaltyEntityMapper;
@@ -18,5 +20,13 @@ public class PenaltyGatewayImpl implements PenaltyGateway {
     public Penalty save(Penalty penalty) {
         PenaltyEntity penaltyEntity = penaltyRepository.save(penaltyEntityMapper.toEntity(penalty));
         return penaltyEntityMapper.toDomain(penaltyEntity);
+    }
+
+    @Override
+    public List<Penalty> listAllPenalty() {
+        List<PenaltyEntity> penaltyEntities = penaltyRepository.findAllPenalty();
+        return penaltyEntities.stream()
+                .map(penaltyEntityMapper::toDomain)
+                .toList();
     }
 }

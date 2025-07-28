@@ -5,6 +5,8 @@ import br.com.thiagodias.teste_deliver.adapter.output.persistence.repository.Bil
 import br.com.thiagodias.teste_deliver.domain.gateway.mapper.BillEntityMapper;
 import br.com.thiagodias.teste_deliver.domain.model.Bill;
 
+import java.util.List;
+
 
 public class BillGatewayImpl implements BillGateway {
     private final BillRepository billRepository;
@@ -21,5 +23,13 @@ public class BillGatewayImpl implements BillGateway {
     public Bill save(Bill bill) {
         BillEntity billEntity = billRepository.save(billEntityMapper.toEntity(bill));
         return billEntityMapper.toDomain(billEntity);
+    }
+
+    @Override
+    public List<Bill> listAllBill() {
+        List<BillEntity> billEntities = billRepository.findAllBill();
+        return billEntities.stream()
+                .map(billEntityMapper::toDomain)
+                .toList();
     }
 }

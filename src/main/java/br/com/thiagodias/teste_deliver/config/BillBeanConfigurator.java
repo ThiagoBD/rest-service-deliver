@@ -19,8 +19,8 @@ public class BillBeanConfigurator {
         return new BillRestController(billUseCase, billDtoMapper);
     }
     @Bean
-    public BillUseCase billUseCase(BillService billService){
-        return new BillUseCase(billService);
+    public BillUseCase billUseCase(BillService billService, PenaltyService penaltyService){
+        return new BillUseCase(billService, penaltyService);
     }
     @Bean
     public BillService billService(BillGateway billGateway, PenaltyService penaltyService){

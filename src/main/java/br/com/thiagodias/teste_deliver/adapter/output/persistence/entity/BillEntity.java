@@ -31,6 +31,9 @@ public class BillEntity {
         this.paymentDate = paymentDate;
     }
 
+    public BillEntity() {
+    }
+
     public Long getId() {
         return id;
     }
