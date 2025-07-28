@@ -133,8 +133,9 @@ Lista todas as Contas que tem, seja com multa ou sem multa.
     ```sh
     docker-compose up --build
     ```
-2. A aplicação estará disponível em:  
-   🌐 [http://localhost:8080](http://localhost:8080/swagger-ui/index.html)
+2. A aplicação estará disponível em:
+     
+   Swagger: [http://localhost:8080](http://localhost:8080/swagger-ui/index.html)
 
-3. banco de dados PostgreSQL estará acessível em:  
+4. banco de dados PostgreSQL estará acessível em:  
    🛢️ `localhost:5432`
